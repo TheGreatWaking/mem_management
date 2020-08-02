@@ -6,24 +6,6 @@
 
 #IncludeRegexTransform: 
 
-/home/erik/文档/CppND-Memory-Management-Chatbot/src/chatbot.cpp
-iostream
--
-random
--
-algorithm
--
-ctime
--
-chatlogic.h
-/home/erik/文档/CppND-Memory-Management-Chatbot/src/chatlogic.h
-graphnode.h
-/home/erik/文档/CppND-Memory-Management-Chatbot/src/graphnode.h
-graphedge.h
-/home/erik/文档/CppND-Memory-Management-Chatbot/src/graphedge.h
-chatbot.h
-/home/erik/文档/CppND-Memory-Management-Chatbot/src/chatbot.h
-
 /home/erik/文档/CppND-Memory-Management-Chatbot/src/chatbot.h
 wx/bitmap.h
 -
@@ -35,6 +17,34 @@ wx/wx.h
 -
 memory
 -
+
+/home/erik/文档/CppND-Memory-Management-Chatbot/src/chatlogic.cpp
+fstream
+-
+sstream
+-
+iostream
+-
+vector
+-
+iterator
+-
+tuple
+-
+algorithm
+-
+memory
+-
+stdlib.h
+-
+graphedge.h
+/home/erik/文档/CppND-Memory-Management-Chatbot/src/graphedge.h
+graphnode.h
+/home/erik/文档/CppND-Memory-Management-Chatbot/src/graphnode.h
+chatbot.h
+/home/erik/文档/CppND-Memory-Management-Chatbot/src/chatbot.h
+chatlogic.h
+/home/erik/文档/CppND-Memory-Management-Chatbot/src/chatlogic.h
 
 /home/erik/文档/CppND-Memory-Management-Chatbot/src/chatlogic.h
 vector
@@ -57,6 +67,8 @@ string
 -
 chatbot.h
 /home/erik/文档/CppND-Memory-Management-Chatbot/src/chatbot.h
+memory
+-
 
 /usr/local/include/wx-3.0/wx/accel.h
 wx/defs.h
