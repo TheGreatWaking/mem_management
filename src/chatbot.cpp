@@ -45,64 +45,70 @@ ChatBot::~ChatBot()
 //// STUDENT CODE
 ////
 // copy constructor
-ChatBot::ChatBot(const ChatBot &resource){
+ChatBot::ChatBot(const ChatBot &source){
     std::cout << "ChatBot Copy Constructor" << std::endl;
+    _chatLogic = source._chatLogic;
+    _rootNode = source._rootNode;
+    _currentNode = source._currentNode;
     _image = new wxBitmap();
-    *_image = *resource._image;
-    _rootNode = resource._rootNode;
-    _chatLogic = resource._chatLogic;
-    _currentNode = resource._currentNode;
-    _chatLogic->SetChatbotHandle(this);
+    *_image = *source._image;
 }
 // copy assignment
-ChatBot& ChatBot::operator=(const ChatBot &resource){
-    if (this == &resource){
+ChatBot& ChatBot::operator=(const ChatBot &source){
+    if (this == &source){
         return *this;
     }
+    if(_image != NULL) {
+        delete _image;
+    }
     std::cout << "ChatBot Copy Assignment" << std::endl;
-    delete _image;
-    //_image = new wxBitmap();
-    *_image = *resource._image;
-    _currentNode = resource._currentNode;
-    _rootNode = resource._rootNode;
-    _chatLogic = resource._chatLogic;
+    _image = new wxBitmap();
+    *_image = *source._image;
+    _currentNode = source._currentNode;
+    _rootNode = source._rootNode;
+    _chatLogic = source._chatLogic;
     _chatLogic->SetChatbotHandle(this);
     return *this;
 }
 //move constructor
-ChatBot::ChatBot(ChatBot &&resource){
+ChatBot::ChatBot(ChatBot &&source){
     std::cout << "ChatBot move constructor" << std::endl;
-    _image = new wxBitmap();
-    *_image = *resource._image;
-    resource._image = NULL;
+    //_image = new wxBitmap();
+    _image = source._image;
+    source._image = NULL;
 
-    _rootNode = resource._rootNode;
-    resource._rootNode = nullptr;
+    _rootNode = source._rootNode;
+    source._rootNode = nullptr;
 
-    _chatLogic = resource._chatLogic;
+    _chatLogic = source._chatLogic;
     _chatLogic->SetChatbotHandle(this);
-    resource._chatLogic = nullptr;
+    source._chatLogic = nullptr;
 
-    _currentNode = resource._currentNode;
-    resource._currentNode = nullptr;
+    _currentNode = source._currentNode;
+    source._currentNode = nullptr;
 }
 //move assignment
-ChatBot& ChatBot::operator=(ChatBot &&resource){
+ChatBot& ChatBot::operator=(ChatBot &&source){
     std::cout << "ChatBot move assignment" << std::endl;
-    delete _image;
+    if (this == &source) {
+        return *this;
+    }
+    if (_image != NULL) {
+        delete _image;
+    }
     //_image = new wxBitmap();
-    *_image = *resource._image;
-    resource._image = NULL;
+    _image = source._image;
+    source._image = NULL;
 
-    _rootNode = resource._rootNode;
-    resource._rootNode = nullptr;
+    _rootNode = source._rootNode;
+    source._rootNode = nullptr;
 
-    _chatLogic = resource._chatLogic;
+    _chatLogic = source._chatLogic;
     _chatLogic->SetChatbotHandle(this);
-    resource._chatLogic = nullptr;
+    source._chatLogic = nullptr;
 
-    _currentNode = resource._currentNode;
-    resource._currentNode = nullptr;
+    _currentNode = source._currentNode;
+    source._currentNode = nullptr;
 
     return *this;
 } 
